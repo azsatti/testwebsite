@@ -1,0 +1,26 @@
+﻿@model TestWebsite.Models.LoginModel
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+    </div>
+    <hr />
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthCode)
+            </dt>
+        
+            <dd>
+                @Html.TextBoxFor(model => model.AuthCode)
+            </dd>
+            <br />
+            <td>  
+                <input type="submit" id="btnSubmit" value="Login" />  
+            </td>  
+        </dl>
+    }  
+   
+</div>
+
