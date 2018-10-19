@@ -6,7 +6,7 @@
     {
         public bool Authenticate(string authCode)
         {
-            var loginDal = new LoginDAL();
+            var loginDal = new LoginDal();
             var dbCode = loginDal.GetAuthCode();
 
             return authCode.Equals(dbCode, StringComparison.OrdinalIgnoreCase);

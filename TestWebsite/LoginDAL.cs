@@ -1,12 +1,15 @@
 ﻿namespace TestWebsite
 {
-    using System.Data.Entity;
+    using System.Linq;
 
-    public class LoginDAL : DbContext
+    public class LoginDal
     {
+        private readonly AuthenticationContext db = new AuthenticationContext();
+
         public string GetAuthCode()
         {
-            return "123456";
+            var activeRecord = db.AuthCodes.OrderByDescending(x => x.CreatedOn).Single(x => x.IsActive);
+            return activeRecord.AuthCode;
         }
     }
 }

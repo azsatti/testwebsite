@@ -33,8 +33,7 @@
 
         public ActionResult Logout()
         {
-            var cookie = new HttpCookie("LoggedIn");
-            cookie.Expires = DateTime.Now.AddDays(-1);
+            var cookie = new HttpCookie("LoggedIn") {Expires = DateTime.Now.AddDays(-1)};
             Response.Cookies.Add(cookie);
             return View("Success");
         }
